@@ -42,3 +42,55 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: scale(0.995);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.985);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.reveal-up {
+	opacity: 0;
+	animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal-soft {
+	opacity: 0;
+	animation: fadeInScale 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.delay-1 {
+	animation-delay: 0.1s;
+}
+
+.delay-2 {
+	animation-delay: 0.2s;
+}
+
+.delay-3 {
+	animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal-up,
+	.reveal-soft {
+		opacity: 1;
+		animation: none;
+	}
+}

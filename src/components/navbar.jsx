@@ -59,9 +59,9 @@ export default function Navbar() {
   const statusText = bot.status ? 'Online' : 'Offline'
 
   return (
-    <nav className="flex items-center justify-between border-2 border-zinc-900 bg-zinc-950/70 text-zinc-100 px-4 py-3 rounded-lg shadow-sm m-1">
+    <nav className="reveal-up flex items-center justify-between border-2 border-zinc-900 bg-zinc-950/70 text-zinc-100 px-4 py-3 rounded-lg shadow-sm m-1">
       <p className="font-kronaone text-xl text-zinc-100">GD KenyBot</p>
-      <section role="status" aria-label="connection status" aria-busy={isLoading} className="flex items-center border border-zinc-700 bg-zinc-800/60 px-3 py-1 rounded-lg gap-2">
+      <section role="status" aria-label="connection status" aria-busy={isLoading} className="reveal-soft delay-1 flex items-center border border-zinc-700 bg-zinc-800/60 px-3 py-1 rounded-lg gap-2">
         <div
           className="relative"
           onMouseEnter={() => setShowTip(true)}
@@ -100,7 +100,7 @@ export default function Navbar() {
           type="button"
           onClick={() => fetchStatus({ showLoading: true })}
           disabled={isLoading}
-          className="p-1 text-xs text-zinc-200 border border-zinc-700 rounded hover:bg-zinc-700/40 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="reveal-soft delay-2 p-1 text-xs text-zinc-200 border border-zinc-700 rounded hover:bg-zinc-700/40 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Refresh status"
         >
           <img src={images.REFRESH} alt="" className='w-4 h-4'/>
