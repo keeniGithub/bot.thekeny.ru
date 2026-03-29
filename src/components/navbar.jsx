@@ -3,7 +3,7 @@ import { getBotStatus } from '../api/status'
 import { images } from '../config/images.config'
 
 export default function Navbar() {
-  const [bot, setBot] = useState({ status: false, last_seen: 'unknown', last_ping_iso: null })
+  const [bot, setBot] = useState({ status: false, last_seen: 'unknown', last_ping_iso: null, version: null, guild_count: null })
   const [showTip, setShowTip] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -57,6 +57,7 @@ export default function Navbar() {
 
   const dotClass = bot.status ? 'bg-green-400 animate-pulse' : 'bg-red-500'
   const statusText = bot.status ? 'Online' : 'Offline'
+  const guildCount = Number.isFinite(Number(bot.guild_count)) ? Number(bot.guild_count) : null
 
   return (
     <nav className="reveal-up flex items-center justify-between border-2 border-zinc-900 bg-zinc-950/70 text-zinc-100 px-4 py-3 rounded-lg shadow-sm m-1">
@@ -90,6 +91,12 @@ export default function Navbar() {
                 <>
                   <div>Last response: {bot.last_seen ?? 'unknown'}</div>
                   {bot.last_ping_iso && <div className="text-xs text-zinc-400">at {formatLocalTime(bot.last_ping_iso)} UTC</div>}
+                  <div className="my-1 border-t border-zinc-700" />
+                  <div className="text-xs text-zinc-300">
+                    Version: {bot.version ?? 'unknown'}
+                    <span className="text-zinc-500 px-1">|</span>
+                    Servers: {guildCount ?? 'unknown'}
+                  </div>
                   {bot.error && <div className="text-xs text-red-400">Error</div>}
                 </>
               )}

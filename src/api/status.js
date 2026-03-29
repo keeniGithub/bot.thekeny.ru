@@ -52,6 +52,8 @@ export async function getBotStatus() {
 			status: data.status,
 			last_ping: data.last_ping,
 			last_ping_iso: data.last_ping_iso,
+			version: data.version,
+			guild_count: data.guild_count,
 			last_seen: timeAgo(data.last_ping ?? data.last_ping_iso)
 		};
 	} catch (err) {
